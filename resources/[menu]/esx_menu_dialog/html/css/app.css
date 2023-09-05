@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Signika+Negative:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yantramanav:wght@100;300;400;500;700;900&display=swap');
+
+
+
+*{
+	font-weight: 600;
+	font-family: 'Yantramanav', sans-serif;
+	text-shadow: 1px 2px 3px rgb(46, 46, 46);
+}
+
+#controls {
+
+	font-size: 1em;
+	text-transform: uppercase;
+	color: #FFF;
+	position: absolute;
+	bottom: 40;
+
+	right: 40;
+}
+
+.controls {
+	display: none;
+}
+
+.dialog {
+	margin-top: 300px;
+	background-color: #252525;
+	border-radius: 5px;
+
+	text-transform: uppercase;
+	
+	color: #ffffff;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	min-width: 100px;
+	min-height: 10px;
+	width: 500px;
+	height: 18vh;
+
+	transform: translate(-50%, -50%);
+	border: 2px solid #4b4b4b;
+}
+
+
+
+.head {
+	font-size: 1.5vh;
+	display: block;
+	overflow: hidden;
+	margin-top: 2.0vh;
+}
+
+.dialog.big {
+	height: 200px;
+}
+
+.dialog .head {
+	text-align: center;
+	height: 20px;
+	font-size: 20px;
+	text-transform: uppercase;
+}
+
+
+
+.dialog input[type="text"] {
+	background-color: rgba(66, 66, 66, 0.75);
+	
+	font-size: 16px;
+	border: 1px solid rgba(100, 100, 100, 0.829);
+	width: 60%;
+	outline: 0;
+	text-align: center;
+	border-radius: .3vh ;
+	margin-top: 20px;
+	margin-left: 105px;
+	padding: 10px 25px;
+	transition: all 0.2s ease-in-out;
+	color: white;
+}
+
+.dialog textarea {
+	background-color: rgba(40, 41, 45, 0.75);
+
+	border: 1px solid rgba(83, 83, 83, 0.5);
+
+	font-size: 16px;
+	outline: 0;
+	width: 100%;
+	height: 100px;
+	color: white;
+}
+
+.dialog button[name="submit"] {
+	background-color: rgb(5, 139, 0);
+	border: none;
+	font-size: 14px;
+	border: 2px solid rgb(5, 139, 0);
+	border-radius: 2px;
+	text-transform: uppercase;
+	color: white;
+	border-radius: 3px;
+	padding: 10px 25px;
+	margin-top: 0;
+	margin-bottom: 15px;
+	margin-left: 105px;
+	transition: all 0.1s ease-in-out;
+
+}
+
+.dialog button {
+	z-index: 9999;
+	transform: translate(-0%, 50%);
+}
+
+.dialog button[name="cancel"] {
+	background-color: rgb(253, 0, 0);
+	border: none;
+	font-size: 14px;
+	text-transform: uppercase;
+	border: 2px solid rgb(253, 0, 0);
+	border-radius: 2px;
+
+	color: white;
+	border-radius: 3px;
+	padding: 10px 25px;
+	margin-top: 0;
+	margin-bottom: 15px;
+	margin-left:  90px;
+	transition: all 0.1s ease-in-out;
+}
+
+.dialog button[name="cancel"]:hover {
+	background-color: #ff0000;
+	cursor: pointer;
+}
+
+.dialog button[name="submit"]:hover {
+	background-color: #058b00;
+	cursor: pointer;
+}
+
+
