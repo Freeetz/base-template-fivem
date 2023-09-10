@@ -87,7 +87,7 @@ RegisterCommand('porter', function(source, args)
 	local plyPed = PlayerPedId()
 
 		if not isDead5 then 
-			if not exports.Freetz Commu:GetSafeZone() then
+			if not exports['Freetz-Core']:GetSafeZone() then
 				if not piggyBackInProgress then
 					piggyBackInProgress = true
 					local closestPlayer, closestDistance = ESX.Game.GetClosestPlayer()
@@ -134,7 +134,7 @@ RegisterCommand('porter', function(source, args)
 end, false)
 
 RegisterCommand('otage', function()
-		if not exports.Freetz Commu:GetSafeZone() then
+		if not exports['Freetz-Core']:GetSafeZone() then
 			if not isDead5 then
 					local plyPed = PlayerPedId()
 					local currentWeapon = GetSelectedPedWeapon(plyPed)
