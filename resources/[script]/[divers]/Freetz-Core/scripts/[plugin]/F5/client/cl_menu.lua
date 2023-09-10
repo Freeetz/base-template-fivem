@@ -1405,7 +1405,7 @@ openMenuF5 = function()
 
             RageUI.Button("Zone de Gun-Fight", nil, {RightLabel = "→→→"}, not tpcooldown, {
                 onSelected = function()
-                    if exports.Freetz Commu:GetSafeZone() then
+                    if exports['Freetz-Core']:GetSafeZone() then
                         tpcooldown = true
 
                         local coords = GetEntityCoords(PlayerPedId())
@@ -1439,7 +1439,7 @@ openMenuF5 = function()
 
             RageUI.Button("Zone d'investissement", nil, {RightLabel = "→→→"}, not tpcooldown, {
                 onSelected = function()
-                    if exports.Freetz Commu:GetSafeZone() then
+                    if exports['Freetz-Core']:Commu:GetSafeZone() then
                         tpcooldown = true
 
                         local coords = GetEntityCoords(PlayerPedId())
