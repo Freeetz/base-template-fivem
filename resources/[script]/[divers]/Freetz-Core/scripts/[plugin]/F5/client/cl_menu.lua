@@ -79,7 +79,7 @@ local VIPWeapons = {
 	['WEAPON_HELLDOUBLEACTION'] = true
 }
 
-Freetz CommuMenu = {
+otopiaMenu = {
 
     Indexaccesories = 1,
     IndexClothes = 1,
@@ -278,7 +278,7 @@ openMenuF5 = function()
 
             RageUI.Button("> Vêtements", "Actions sur vos vêtements", {RightLabel = "→→→"}, true, {}, vetmenu)
 
-            --RageUI.Button("> Radio", "Accéder à la radio", {RightLabel = "→→→"}, Freetz CommuMenu.InfosRadio, {
+            --RageUI.Button("> Radio", "Accéder à la radio", {RightLabel = "→→→"}, otopiaMenu.InfosRadio, {
             --    onSelected = function()
             --    end
             --}, radio)
@@ -325,22 +325,22 @@ openMenuF5 = function()
 
             RageUI.Separator('Poids > '.. GetCurrentWeight() + 0.0 .. '/' .. ESX.PlayerData.maxWeight + 0.0)
 
-            RageUI.List("Filtre", {"Aucun", "Inventaire", "Armes"}, Freetz CommuMenu.Indexinvetory, nil, {}, true, {
+            RageUI.List("Filtre", {"Aucun", "Inventaire", "Armes"}, otopiaMenu.Indexinvetory, nil, {}, true, {
                 onListChange = function(index)
-                    Freetz CommuMenu.Indexinvetory = index 
+                    otopiaMenu.Indexinvetory = index 
                     if index == 1 then 
-                        Freetz CommuMenu.Item, Freetz CommuMenu.Weapon, Freetz CommuMenu.Vetement, Freetz CommuMenu.AccesoiresMenu = true, true, true, true
+                        otopiaMenu.Item, otopiaMenu.Weapon, otopiaMenu.Vetement, otopiaMenu.AccesoiresMenu = true, true, true, true
                     elseif index == 2 then 
-                        Freetz CommuMenu.Item, Freetz CommuMenu.Weapon, Freetz CommuMenu.Vetement, Freetz CommuMenu.AccesoiresMenu = true, false, false, false
+                        otopiaMenu.Item, otopiaMenu.Weapon, otopiaMenu.Vetement, otopiaMenu.AccesoiresMenu = true, false, false, false
                     elseif index == 3 then 
-                        Freetz CommuMenu.Item, Freetz CommuMenu.Weapon, Freetz CommuMenu.Vetement, Freetz CommuMenu.AccesoiresMenu = false, true, false, false
+                        otopiaMenu.Item, otopiaMenu.Weapon, otopiaMenu.Vetement, otopiaMenu.AccesoiresMenu = false, true, false, false
                     elseif index == 4 then 
-                        Freetz CommuMenu.Item, Freetz CommuMenu.Weapon, Freetz CommuMenu.Vetement, Freetz CommuMenu.AccesoiresMenu = false, false, true, false
+                        otopiaMenu.Item, otopiaMenu.Weapon, otopiaMenu.Vetement, otopiaMenu.AccesoiresMenu = false, false, true, false
                     end
                 end
             })
 
-            if Freetz CommuMenu.Item then 
+            if otopiaMenu.Item then 
                 if #ESX.PlayerData.inventory > 0 then 
                     RageUI.Separator("↓ Item ↓")
                     for k, v in pairs(ESX.PlayerData.inventory) do 
@@ -361,7 +361,7 @@ openMenuF5 = function()
                 end
             end
 
-            --[[if Freetz CommuMenu.Weapon then 
+            --[[if otopiaMenu.Weapon then 
                 local Player = GetPlayerServerId()
                 local WeaponData = ESX.GetWeaponList()
                 local tkt = ESX.GetPlayerData().loadout 
@@ -384,7 +384,7 @@ openMenuF5 = function()
                 end
             end--]]
 
-            if Freetz CommuMenu.Weapon then 
+            if otopiaMenu.Weapon then 
                 RageUI.Separator("↓ Armes ↓")
                 local WeaponData = ESX.GetPlayerData().loadout 
                     for i = 1, #WeaponData do
@@ -406,7 +406,7 @@ openMenuF5 = function()
             end
 
             --[[
-            if Freetz CommuMenu.Weapon then 
+            if otopiaMenu.Weapon then 
                 local WeaponData = ESX.GetPlayerData().loadout 
                     for i = 1, #WeaponData do
                         local ammo = GetAmmoInPedWeapon(PlayerPedId(), WeaponData[i].hash)
@@ -423,14 +423,14 @@ openMenuF5 = function()
             end
             --]]
 
-            if Freetz CommuMenu.Vetement then 
+            if otopiaMenu.Vetement then 
                 --[[if ClothesPlayer ~= nil  then 
                     RageUI.Separator("↓ Vetement(s) ↓")
                     for k, v in pairs(ClothesPlayer) do 
                         if v.label ~= nil and v.type == "vetement" and v.equip ~= "n" then 
-                            RageUI.List("> Tenue "..v.label, {"Equiper", "Renomer", "Supprimer", "Donner"}, Freetz CommuMenu.IndexVetement, nil, {}, true, {
+                            RageUI.List("> Tenue "..v.label, {"Equiper", "Renomer", "Supprimer", "Donner"}, otopiaMenu.IndexVetement, nil, {}, true, {
                                 onListChange = function(Index)
-                                    Freetz CommuMenu.IndexVetement = Index
+                                    otopiaMenu.IndexVetement = Index
                                 end,
                                 onSelected = function(Index)
                                     if Index == 1 then 
@@ -470,15 +470,15 @@ openMenuF5 = function()
                 end--]]
             end
 
-            --[[if Freetz CommuMenu.AccesoiresMenu then 
+            --[[if otopiaMenu.AccesoiresMenu then 
                 if ClothesPlayer ~= nil then 
                     RageUI.Separator("Accesoires")
                     if not ClothesPlayer ~= nil then
                         for k, v in pairs(ClothesPlayer) do 
                             if v.label ~= nil and v.type ~= "vetement" then 
-                                RageUI.List("> "..v.type..' '..v.label, {"Equiper", "Renomer", "Supprimer", "Donner"}, Freetz CommuMenu.IndexVetement, nil, {}, true, {
+                                RageUI.List("> "..v.type..' '..v.label, {"Equiper", "Renomer", "Supprimer", "Donner"}, otopiaMenu.IndexVetement, nil, {}, true, {
                                     onListChange = function(Index)
-                                        Freetz CommuMenu.IndexVetement = Index
+                                        otopiaMenu.IndexVetement = Index
                                     end,
                                     onSelected = function(Index)
                                         if Index == 1 then 
@@ -631,15 +631,15 @@ openMenuF5 = function()
             
             local pVeh = GetVehiclePedIsUsing(PlayerPedId())
 
-            RageUI.Button("Allumer / Eteindre le moteur", nil, {RightLabel = Freetz CommuMenu.Statut}, true, {
+            RageUI.Button("Allumer / Eteindre le moteur", nil, {RightLabel = otopiaMenu.Statut}, true, {
                 onSelected = function()
                     if GetIsVehicleEngineRunning(pVeh) then
-                        Freetz CommuMenu.Statut = "~r~Eteint"
+                        otopiaMenu.Statut = "~r~Eteint"
 
                         SetVehicleEngineOn(pVeh, false, false, true)
                         SetVehicleUndriveable(pVeh, true)
                     elseif not GetIsVehicleEngineRunning(pVeh) then
-                        Freetz CommuMenu.Statut = "~b~Allumé"
+                        otopiaMenu.Statut = "~b~Allumé"
 
                         SetVehicleEngineOn(pVeh, true, false, true)
                         SetVehicleUndriveable(pVeh, false)
@@ -647,58 +647,58 @@ openMenuF5 = function()
                 end
             })
 
-            RageUI.List("Ouvrir / Fermer porte", {"Avant gauche", "Avant Droite", "Arrière Gauche", "Arrière Droite", "Capot", "Coffre"}, Freetz CommuMenu.Indexdoor, nil, {}, true, {
+            RageUI.List("Ouvrir / Fermer porte", {"Avant gauche", "Avant Droite", "Arrière Gauche", "Arrière Droite", "Capot", "Coffre"}, otopiaMenu.Indexdoor, nil, {}, true, {
                 onListChange = function(index)
-                    Freetz CommuMenu.Indexdoor = index 
+                    otopiaMenu.Indexdoor = index 
                 end,
                 onSelected = function(index)
                     
                     if index == 1 then
-                        if not Freetz CommuMenu.DoorState.FrontLeft then
-                            Freetz CommuMenu.DoorState.FrontLeft = true
+                        if not otopiaMenu.DoorState.FrontLeft then
+                            otopiaMenu.DoorState.FrontLeft = true
                             SetVehicleDoorOpen(pVeh, 0, false, false)
-                        elseif Freetz CommuMenu.DoorState.FrontLeft then
-                            Freetz CommuMenu.DoorState.FrontLeft = false
+                        elseif otopiaMenu.DoorState.FrontLeft then
+                            otopiaMenu.DoorState.FrontLeft = false
                             SetVehicleDoorShut(pVeh, 0, false, false)
                         end
                     elseif index == 2 then
-                        if not Freetz CommuMenu.DoorState.FrontRight then
-                            Freetz CommuMenu.DoorState.FrontRight = true
+                        if not otopiaMenu.DoorState.FrontRight then
+                            otopiaMenu.DoorState.FrontRight = true
                             SetVehicleDoorOpen(pVeh, 1, false, false)
-                        elseif Freetz CommuMenu.DoorState.FrontRight then
-                            Freetz CommuMenu.DoorState.FrontRight = false
+                        elseif otopiaMenu.DoorState.FrontRight then
+                            otopiaMenu.DoorState.FrontRight = false
                             SetVehicleDoorShut(pVeh, 1, false, false)
                         end
                     elseif index == 3 then
-                        if not Freetz CommuMenu.DoorState.BackLeft then
-                            Freetz CommuMenu.DoorState.BackLeft = true
+                        if not otopiaMenu.DoorState.BackLeft then
+                            otopiaMenu.DoorState.BackLeft = true
                             SetVehicleDoorOpen(pVeh, 2, false, false)
-                        elseif Freetz CommuMenu.DoorState.BackLeft then
-                            Freetz CommuMenu.DoorState.BackLeft = false
+                        elseif otopiaMenu.DoorState.BackLeft then
+                            otopiaMenu.DoorState.BackLeft = false
                             SetVehicleDoorShut(pVeh, 2, false, false)
                         end
                     elseif index == 4 then
-                        if not Freetz CommuMenu.DoorState.BackRight then
-                            Freetz CommuMenu.DoorState.BackRight = true
+                        if not otopiaMenu.DoorState.BackRight then
+                            otopiaMenu.DoorState.BackRight = true
                             SetVehicleDoorOpen(pVeh, 3, false, false)
-                        elseif Freetz CommuMenu.DoorState.BackRight then
-                            Freetz CommuMenu.DoorState.BackRight = false
+                        elseif otopiaMenu.DoorState.BackRight then
+                            otopiaMenu.DoorState.BackRight = false
                             SetVehicleDoorShut(pVeh, 3, false, false)
                         end
                     elseif index == 5 then 
-                        if not Freetz CommuMenu.DoorState.Hood then
-                            Freetz CommuMenu.DoorState.Hood = true
+                        if not otopiaMenu.DoorState.Hood then
+                            otopiaMenu.DoorState.Hood = true
                             SetVehicleDoorOpen(pVeh, 4, false, false)
-                        elseif Freetz CommuMenu.DoorState.Hood then
-                            Freetz CommuMenu.DoorState.Hood = false
+                        elseif otopiaMenu.DoorState.Hood then
+                            otopiaMenu.DoorState.Hood = false
                             SetVehicleDoorShut(pVeh, 4, false, false)
                         end
                     elseif index == 6 then 
-                        if not Freetz CommuMenu.DoorState.Trunk then
-                            Freetz CommuMenu.DoorState.Trunk = true
+                        if not otopiaMenu.DoorState.Trunk then
+                            otopiaMenu.DoorState.Trunk = true
                             SetVehicleDoorOpen(pVeh, 5, false, false)
-                        elseif Freetz CommuMenu.DoorState.Trunk then
-                            Freetz CommuMenu.DoorState.Trunk = false
+                        elseif otopiaMenu.DoorState.Trunk then
+                            otopiaMenu.DoorState.Trunk = false
                             SetVehicleDoorShut(pVeh, 5, false, false)
                         end
                     end
@@ -713,9 +713,9 @@ openMenuF5 = function()
                 end
             })
 
-            RageUI.List("Limitateur", Freetz CommuMenu.voiture_limite, Freetz CommuMenu.LimitateurIndex, nil, {}, true, {
+            RageUI.List("Limitateur", otopiaMenu.voiture_limite, otopiaMenu.LimitateurIndex, nil, {}, true, {
                 onListChange = function(i, item)
-                    Freetz CommuMenu.LimitateurIndex = i
+                    otopiaMenu.LimitateurIndex = i
                 end,
 
                 onSelected = function(i, item)
@@ -750,9 +750,9 @@ openMenuF5 = function()
 
         RageUI.IsVisible(vetmenu, function()
 
-            RageUI.List(" Vetement", {"Haut", "Bas", "Chaussures", "Sac", "Giltet par balle"}, Freetz CommuMenu.IndexClothes, nil, {LeftBadge = RageUI.BadgeStyle.Clothes}, true, {
+            RageUI.List(" Vetement", {"Haut", "Bas", "Chaussures", "Sac", "Giltet par balle"}, otopiaMenu.IndexClothes, nil, {LeftBadge = RageUI.BadgeStyle.Clothes}, true, {
                 onListChange = function(index)
-                    Freetz CommuMenu.IndexClothes = index 
+                    otopiaMenu.IndexClothes = index 
                 end, 
                 onSelected = function(index)
                     ESX.TriggerServerCallback("esx_skin:getPlayerSkin", function(skin)
@@ -815,9 +815,9 @@ openMenuF5 = function()
                 end
             })
 
-            RageUI.List(' Accesoires', {"Masque","Chapeau", "Lunette", "Boucle d'oreilles", "Chaine"}, Freetz CommuMenu.Indexaccesories, nil, {LeftBadge = RageUI.BadgeStyle.Mask}, true, {
+            RageUI.List(' Accesoires', {"Masque","Chapeau", "Lunette", "Boucle d'oreilles", "Chaine"}, otopiaMenu.Indexaccesories, nil, {LeftBadge = RageUI.BadgeStyle.Mask}, true, {
                 onListChange = function(Index)
-                    Freetz CommuMenu.Indexaccesories = Index;
+                    otopiaMenu.Indexaccesories = Index;
                 end,
 
                 onSelected = function(Index)
@@ -849,12 +849,12 @@ openMenuF5 = function()
 
             RageUI.Button("Allumer / Eteindre", "Vous permet d'allumer ou d'éteindre la radio", {RightLabel = "→→→"}, true, {
                 onSelected = function()
-                    if not Freetz CommuMenu.TickRadio then 
-                        Freetz CommuMenu.TickRadio = true 
+                    if not otopiaMenu.TickRadio then 
+                        otopiaMenu.TickRadio = true 
                         pma:setVoiceProperty("radioEnabled", true)
                         ESX.ShowNotification("~n~Radio Allumé !")
                     else
-                        Freetz CommuMenu.TickRadio = false
+                        otopiaMenu.TickRadio = false
                         pma:setRadioChannel(0)
                         pma:setVoiceProperty("radioEnabled", false)
                         ESX.ShowNotification("~n~Radio Eteinte !")
@@ -862,28 +862,28 @@ openMenuF5 = function()
                 end
             })
 
-            if Freetz CommuMenu.TickRadio then
+            if otopiaMenu.TickRadio then
                 RageUI.Separator("Radio: ~b~Allumée")
 
-                if Freetz CommuMenu.Bruitages then 
+                if otopiaMenu.Bruitages then 
                     RageUI.Separator("Bruitages: ~b~Activés")
                 else
                     RageUI.Separator("Bruitages: ~r~Désactivés")
                 end
 
-                if Freetz CommuMenu.VolumeRadio*100 <= 20 then 
+                if otopiaMenu.VolumeRadio*100 <= 20 then 
                     ColorRadio = "~b~" 
-                elseif Freetz CommuMenu.VolumeRadio*100 <= 45 then 
+                elseif otopiaMenu.VolumeRadio*100 <= 45 then 
                     ColorRadio ="~b~" 
-                elseif Freetz CommuMenu.VolumeRadio*100 <= 65 then 
+                elseif otopiaMenu.VolumeRadio*100 <= 65 then 
                     ColorRadio ="~o~" 
-                elseif Freetz CommuMenu.VolumeRadio*100 <= 100 then 
+                elseif otopiaMenu.VolumeRadio*100 <= 100 then 
                     ColorRadio ="~r~" 
                 end 
 
-                RageUI.Separator("Volume: "..ColorRadio..ESX.Math.Round(Freetz CommuMenu.VolumeRadio*100).."~s~ %")
+                RageUI.Separator("Volume: "..ColorRadio..ESX.Math.Round(otopiaMenu.VolumeRadio*100).."~s~ %")
 
-                RageUI.Button("Se connecter à une fréquence ", "Choissisez votre fréquence", {RightLabel = Freetz CommuMenu.Frequence}, true, {
+                RageUI.Button("Se connecter à une fréquence ", "Choissisez votre fréquence", {RightLabel = otopiaMenu.Frequence}, true, {
                     onSelected = function()
                                 local verif, Frequence = CheckQuantity(KeyboardInput("Frequence", "Frequence", "", 10))
                                 local PlayerData = ESX.GetPlayerData(_source)
@@ -893,7 +893,7 @@ openMenuF5 = function()
                                     return
                                 end
                                 
-                                for i,v in pairs(Freetz CommuMenu.jobChannels) do
+                                for i,v in pairs(otopiaMenu.jobChannels) do
                                     if Frequence >= v.min and Frequence <= v.max then
                                         table.insert(restricted, v)
                                     end
@@ -902,7 +902,7 @@ openMenuF5 = function()
                                 if #restricted > 0 then
                                     for i,v in pairs(restricted) do
                                         if PlayerData.job.name == v.job and Frequence >= v.min and Frequence <= v.max then
-                                            Freetz CommuMenu.Frequence = tostring(Frequence)
+                                            otopiaMenu.Frequence = tostring(Frequence)
                                             pma:setRadioChannel(Frequence)
                                             ESX.ShowNotification("Fréquence définie sur "..Frequence.." MHZ")
                                             currentChannel = Frequence
@@ -913,7 +913,7 @@ openMenuF5 = function()
                                         end
                                     end
                                 else
-                                    Freetz CommuMenu.Frequence = tostring(Frequence)
+                                    otopiaMenu.Frequence = tostring(Frequence)
                                     pma:setRadioChannel(Frequence)
                                     ESX.ShowNotification("~n~Fréquence définie sur "..Frequence.." MHZ")
                                     currentChannel = Frequence
@@ -924,19 +924,19 @@ openMenuF5 = function()
                 RageUI.Button("Se déconnecter de la fréquence", "Vous permet de déconnecter de votre fréquence actuelle", {RightLabel = "→→→"}, true, {
                     onSelected = function()
                         pma:setRadioChannel(0)
-                        Freetz CommuMenu.Frequence = "0"
+                        otopiaMenu.Frequence = "0"
                         ESX.ShowNotification("Vous vous êtes déconnecter de la fréquence")
                     end
                 })
 
                 RageUI.Button("Activer les bruitages", "Vous permet d'activer les bruitages'", {RightLabel = "→→→"}, true, {
                     onSelected = function()
-                        if Freetz CommuMenu.Bruitages then 
-                            Freetz CommuMenu.Bruitages = false
+                        if otopiaMenu.Bruitages then 
+                            otopiaMenu.Bruitages = false
                             pma:setVoiceProperty("micClicks", false)
                             ESX.ShowNotification("Bruitages radio désactives")
                         else
-                            Freetz CommuMenu.Bruitages = true 
+                            otopiaMenu.Bruitages = true 
                             ESX.ShowNotification("Bruitages radio activés")
                             pma:setVoiceProperty("micClicks", true)
                         end
@@ -949,9 +949,9 @@ openMenuF5 = function()
             RageUI.Separator("________________")
 
         end, function()
-            RageUI.PercentagePanel(Freetz CommuMenu.VolumeRadio, 'Volume', '0%', '100%', {
+            RageUI.PercentagePanel(otopiaMenu.VolumeRadio, 'Volume', '0%', '100%', {
                 onProgressChange = function(Percentage)
-                    Freetz CommuMenu.VolumeRadio = Percentage
+                    otopiaMenu.VolumeRadio = Percentage
                     pma:setRadioVolume(Percentage)
                 end
             }, 5) 
@@ -1314,26 +1314,26 @@ openMenuF5 = function()
 
         RageUI.IsVisible(diversmenu, function()
 
-            RageUI.Checkbox("Activer le radar", "Vous permet d'activer ou de désactiver la minimap", Freetz CommuMenu.Radar, {}, {
+            RageUI.Checkbox("Activer le radar", "Vous permet d'activer ou de désactiver la minimap", otopiaMenu.Radar, {}, {
                 onChecked = function()
                 end,
                 onUnChecked = function()
                 end,
                 onSelected = function(Index)
-                    DisplayRadar(Freetz CommuMenu.Radar)
-                    Freetz CommuMenu.Radar = Index
+                    DisplayRadar(otopiaMenu.Radar)
+                    otopiaMenu.Radar = Index
                 end
                 
             })
 
-            --RageUI.Checkbox("Activer l'HUD", "Vous permet d'activer ou de désactiver l'HUD", Freetz CommuMenu.ui, {}, {
+            --RageUI.Checkbox("Activer l'HUD", "Vous permet d'activer ou de désactiver l'HUD", otopiaMenu.ui, {}, {
             --    onChecked = function()
             --    end,
             --    onUnChecked = function()
             --    end,
             --    onSelected = function(Index)
-            --        TriggerEvent("tempui:toggleUi", not Freetz CommuMenu.ui)
-            --        Freetz CommuMenu.ui = Index
+            --        TriggerEvent("tempui:toggleUi", not otopiaMenu.ui)
+            --        otopiaMenu.ui = Index
             --    end
 
             --})
